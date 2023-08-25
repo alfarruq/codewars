@@ -1,36 +1,23 @@
 // <---------  exercise   --------> => 7kyu
 
-// In DNA strings, symbols "A" and "T" are complements of each other,
-//  as "C" and "G". Your function receives one side of the DNA 
-//  (string, except for Haskell); you need to return the other complementary side.
-//   DNA strand is never empty or there is no DNA at all (again, except for Haskell).
+// Your task is to write a function maskify, 
+// which changes all but the last four characters into '#'.
 
 // Exsample
 
-// "ATTGC" --> "TAACG"
-// "GTAT" --> "CATA"
+// "4556364607935616" --> "############5616"
+//      "64607935616" -->      "#######5616"
+//                "1" -->                "1"
+//                 "" -->                 ""
 
 // <---------  solution  -------->
 
-function DNAStrand(dna) {
+function maskify(c) {
   let result = "";
-  for (let l of dna) {
-    switch (l) {
-      case "A":
-        result += "T";
-        break;
-      case "T":
-        result += "A";
-        break;
-      case "C":
-        result += "G";
-        break;
-      default:
-        result += "C";
-        break;
-    }
-  }
-  return result;
+  if (c.length > 4) {
+    for (let i = 0; i < c.length - 4; i++) result += "#";
+    return result + c.slice(c.length - 4);
+  } else return c;
 }
 
-console.log(DNAStrand("ATTGC"));
+console.log(maskify("5616"));
