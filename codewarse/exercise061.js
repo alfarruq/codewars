@@ -1,21 +1,32 @@
 // <---------  exercise   --------> => 5kyu
 
-// Easy case is when the list is made up of only positive numbers and the maximum sum is the sum of the whole array. If the list is made up of only negative numbers, return 0 instead.
-// Empty list is considered to have zero greatest sum. Note that the empty list or array is also a valid sublist/subarray.
+// The marketing team is spending way too much time typing in hashtags.
+// Let's help them with our own Hashtag Generator!
+// Here's the deal:
+// It must start with a hashtag (#).
+// All words must have their first letter capitalized.
+// If the final result is longer than 140 chars it must return false.
+// If the input or the result is an empty string it must return false.
+
 
 // <--------- Exsample   -------->
-// maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])
-// should be 6: [4, -1, 2, 1]
+
+// " Hello there thanks for trying my Kata"  =>  "#HelloThereThanksForTryingMyKata"
+// "    Hello     World   "                  =>  "#HelloWorld"
+// ""                                        =>  false
 
 // <---------  solution  -------->
 
 
-let maxSequence = function (arr) {
-  let maxSeq = 0;
-  let currSeq = 0;
-  for (const x of arr) {
-    currSeq = Math.max(0, currSeq + x);
-    maxSeq = Math.max(currSeq, maxSeq);
+function generateHashtag (str) {
+  if (str == "") return false;
+  let result = "#";
+  for (let i = 0; i < str.length; i++) {
+    str.slice(i, i + 1) != " " &&
+      (result +=
+        str.slice(i - 1, i) == " " || i == 0
+          ? str.slice(i, i + 1).toUpperCase()
+          : str.slice(i, i + 1));
   }
-  return maxSeq;
-};
+  return( result.length > 1 && result.length <=140)? result : false;
+}
