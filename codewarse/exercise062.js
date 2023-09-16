@@ -10,9 +10,10 @@
 
 // <---------  solution  -------->
 
-function firstNonRepeatingLetter(str) {
-  for (let l of str.toLowerCase()) {
-    if (str.indexOf(l) == str.lastIndexOf(l)) return l;
-  }
+function firstNonRepeatingLetter(s) {
+    let str = s.toLowerCase()
+    for(let l of str){
+      if(str.indexOf(l) == str.lastIndexOf(l)) return l
+    } return '';
   return "";
 }
