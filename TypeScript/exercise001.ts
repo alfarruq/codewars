@@ -8,6 +8,7 @@
 
 // No exsample
 
+
 // <---------  solution  -------->
 
 export function removeChar(str: string): string {
