@@ -14,7 +14,6 @@
 
 // <---------  solution  -------->
 
-// Return the output array, and ignore all non-op characters
 function parse(data) {
   let result = [];
   let value = 0;
