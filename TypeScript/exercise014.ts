@@ -24,7 +24,7 @@
 
 export function partsSums(ls: number[]): number[] {
   let sum:number = ls.reduce((acc, val) => acc + val, 0);
-  let res:number[] = [];
+  let res:number[] = []; 
   for (let i = ls.length; i >= 0; i--) {
     res.push(sum);
     sum -= ls[ls.length - i] || 0;
